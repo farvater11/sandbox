@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = "~/Areas/Calc/Views/Shared/_MyLayout.cshtml";
+}
+<div>
+    @{
+        double res;
+        switch (ViewBag.Action)
+        {
+            case "+":
+                res = ViewBag.a + ViewBag.b;
+                break;
+            case "-":
+                res = ViewBag.a - ViewBag.b;
+                break;
+            case "*":
+                res = ViewBag.a * ViewBag.b;
+                break;
+            case "/":
+                res = ViewBag.a / ViewBag.b;
+                break;
+            default:
+                res = 0;
+                break;
+        }
+    }
+    @section Header{
+        HEADER FROM VIEW
+    }
+    @section Mid{
+        RESULT  @ViewBag.a @ViewBag.Action @ViewBag.b = @res
+
+    }
+    @section Footer{
+        <br />
+        @Html.RouteLink("Product List", "", new { controller = "Products", action = "List", area = "" });
+        <br />
+        @Html.RouteLink("Product details", new { controller = "Products", action = "Details", area = "" })
+        <br />
+        @Html.RouteLink("MAIN PAGE", new { controller = "Home", action = "Index", area = "" })
+        <br />
+        @Html.RouteLink("Main calc", new { controller = "Calculator", action = "Index", area = "Calc" })
+    }
+</div>

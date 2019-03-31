@@ -13,11 +13,33 @@ namespace WebApplication2
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
+
+
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
+                name: "Calc",
+                url: "{area}/{controller}/{action}/{a}/{b}"
+            );
+
+            routes.MapRoute(
+                name: "PublicR",
+                url: "Public/{controller}/{action}/{id}/{*catchAll}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+               name: "All",
+               url: "{controller}/{action}/{id}/{*catchAll}",
+               defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+               namespaces: new[] { "WebApplication2.Controllers" }
+           );
+
+/*
+            routes.MapRoute(
+                name: "Ru", 
+                url: "Ru{controller}/{action}/{id}", 
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );*/           
         }
     }
 }

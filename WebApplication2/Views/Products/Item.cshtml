@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_MyLayoutProducts.cshtml";
+}
+
+@ViewBag.Titile = Item
+@section Mid{
+    @{
+        WebApplication2.Models.Product prod = ViewBag.item;
+    }
+    @prod.GetName()
+    @ViewBag.item.GetId()
+    @ViewBag.All
+    @Html.Action("GetCurrentDate")
+}
+
+@section Top{
+    <i>Item</i>
+    <br />
+    @Html.RouteLink("Go back", new { controller ="Products", action="List"})
+}
+@section Bottom{
+    Footer from itemView
+}

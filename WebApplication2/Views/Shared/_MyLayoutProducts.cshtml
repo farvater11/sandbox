@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        @RenderSection("Top")
+        <br />===
+    </div>
+    <div>
+        @RenderSection("Mid")
+        <br />===
+    </div>
+    <div>
+        @Html.Partial("AboutUFooter")
+        <br />
+        @RenderSection("Bottom",false)
+        <br />===
+    </div>
+</body>
+</html>
+

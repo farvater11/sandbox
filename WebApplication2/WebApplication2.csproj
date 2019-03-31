@@ -126,10 +126,19 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Calc\CalcAreaRegistration.cs" />
+    <Compile Include="Areas\Calc\Controllers\CalculatorController.cs" />
+    <Compile Include="Areas\user\Controllers\HomeController.cs" />
+    <Compile Include="Areas\user\userAreaRegistration.cs" />
+    <Compile Include="Controllers\CustmerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\CustomHelperMethod.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Custmer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +152,12 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\user\Views\web.config" />
+    <Content Include="Areas\user\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Calc\Views\web.config" />
+    <Content Include="Areas\Calc\Views\Shared\ResultView.cshtml" />
+    <Content Include="Areas\Calc\Views\Calculator\Index.cshtml" />
+    <Content Include="Content\regulamin-antyplagiatowy-2015-z-zarządzeniem-rektora1.pdf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -168,10 +183,22 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Products\List.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Custmer\List.cshtml" />
+    <Content Include="Views\Products\Item.cshtml" />
+    <Content Include="Areas\Calc\Views\Shared\_MyLayout.cshtml" />
+    <Content Include="Views\Shared\ViewUserControl.cshtml" />
+    <Content Include="Views\Shared\ItemPartiaView.cshtml" />
+    <Content Include="Views\Shared\_MyLayoutProducts.cshtml" />
+    <Content Include="Views\Shared\AboutUFooter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Areas\Calc\Models\" />
+    <Folder Include="Areas\Calc\Views\Add\" />
+    <Folder Include="Areas\user\Models\" />
+    <Folder Include="Areas\user\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

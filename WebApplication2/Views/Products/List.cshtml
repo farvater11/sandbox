@@ -1,0 +1,60 @@
+﻿@model IEnumerable<WebApplication2.Models.Product>
+@{
+    Layout = "~/Views/Shared/_MyLayoutProducts.cshtml";
+}
+
+@ViewBag.Title = List
+@section Top{
+    <i>List</i><br />
+    <a href="/Products/Details">/Products/Details</a> |
+    @Html.RouteLink("Products / Details", new { controller = "/Products", action = "Details", areas = "" })
+}
+Public
+@section Mid{
+    @if (ViewBag.SeenItem != null)
+    {
+        <i>You saw item #@ViewBag.SeenItem</i>
+    }
+    <br />
+    @Html.UnorderedList(Model)
+    @CreateList(Model)
+    <br />
+    <div>
+        @*                     метод     контроллер*@
+        @using (Html.BeginForm("List", "Products"))
+        {
+            <label>X</label> @Html.TextBox("x")<br />
+            <label>Y</label> @Html.TextBox("y")<br />
+            <input type="submit" name="operation" value="Get Result" />@*Кнопка с отправкой*@
+        }
+        <a href="/Products/QueryInfo?message=sending_by_hello_world">Send via Query</a>
+    </div>
+ 
+
+    <br />
+    Resolved mes: @ViewBag.Mes
+}
+
+@section Bottom{
+
+    @Html.Partial("ViewUserControl") <br />
+    @Html.RouteLink("Route to userControl", new { controller = "Home", action = "Index", area = "user" })
+}
+
+
+@CreateList(Model) @*Вызов вспомогательного ЛОКАЛЬНОГО метода*@
+
+@*Инициализация*@
+@helper CreateList(IEnumerable<WebApplication2.Models.Product> list)
+{
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                @Html.RouteLink(item.GetName() + "_" + item.GetId(), new { controller = "Products", action = "Item", area = "", id = @item.GetId() })
+                <br />
+                @Html.Partial("ItemPartiaView", item)
+            </li>
+        }
+    </ul>
+}

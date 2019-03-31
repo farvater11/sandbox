@@ -1,0 +1,18 @@
+﻿@model IEnumerable<int>
+@{
+    Layout = "~/Views/Shared/_MyLayoutProducts.cshtml";
+}
+
+@ViewBag.Title = "Details"
+@section Mid{
+    <ul>
+        @foreach (int itemId in Model)
+        {
+            <li>@itemId</li>
+        }
+    </ul>
+}
+
+@section Top{
+    <i>DETAILS</i>
+}
